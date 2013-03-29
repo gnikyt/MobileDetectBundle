@@ -328,6 +328,10 @@ class RequestListener
                     ->get($this->container->get('request')->get('_route'))
                 ;
 
+        if (null === $route) {
+            return false;
+        }
+
         $option = $route->getOption($name);
 
         if (!$option) {
